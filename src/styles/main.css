@@ -250,13 +250,13 @@ body {
   perspective: 1200px;
 }
 
-/* ── Card display order: Mehendi → Sangeet → Haldi → Mangana Handi → Baarat → Reception ── */
-.framer-1xxttys-container { order: 1; } /* Mehendi      */
-.framer-v371mv-container  { order: 2; } /* Sangeet      */
-.framer-1mhegaa-container { order: 3; } /* Haldi        */
-.framer-y390rh-container  { order: 4; } /* Mangana Handi */
-.framer-15hmep-container  { order: 5; } /* Baarat       */
-.framer-8j9rab-container  { order: 6; } /* Reception    */
+/* ── Card display order: Sangeet → Haldi → Mangana Handi → Baarat → Reception ── */
+.framer-1xxttys-container { display: none !important; } /* Mehendi — removed */
+.framer-v371mv-container  { order: 1; } /* Sangeet      */
+.framer-1mhegaa-container { order: 2; } /* Haldi        */
+.framer-y390rh-container  { order: 3; } /* Mangana Handi */
+.framer-15hmep-container  { order: 4; } /* Baarat       */
+.framer-8j9rab-container  { order: 5; } /* Reception    */
 
 .framer-eqI5A {
   position: relative;

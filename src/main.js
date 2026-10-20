@@ -73,7 +73,6 @@ function initEventFieldOverrides(events) {
 function initRepurposedCards() {
   // Framer JS hardcodes these event names in the .mjs bundle — override all mismatches
   const cards = [
-    { sel: '.framer-1xxttys-container', name: 'Mehendi' },
     { sel: '.framer-y390rh-container',  name: 'Mangana Handi' },
     { sel: '.framer-v371mv-container',  name: 'Sangeet' },
     { sel: '.framer-8j9rab-container',  name: 'Reception' },

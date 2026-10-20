@@ -36,9 +36,8 @@ module.exports = {
 
   // ── Events (6 cards) ────────────────────────────────────
   events: [
-    { event: "Mehendi",       date: "Friday, 4th Dec 2026",    venue: "Sasmal Residence, Brahmana Sahi, Kataka",   time: "3pm Onwards",  mapsLink: "https://maps.app.goo.gl/nztDZypZiyZP76Kq7" },
-    { event: "Sangeet",       date: "Friday, 4th Dec 2026",    venue: "PritiPrakash Niwas, Khannagar, Kataka",     time: "5pm Onwards",  mapsLink: "https://maps.app.goo.gl/nztDZypZiyZP76Kq7" },
-    { event: "Haldi",         date: "Saturday, 5th Dec 2026",  venue: "Sasmal Residence, Brahmana Sahi, Kataka",   time: "11am Onwards", mapsLink: "https://maps.app.goo.gl/nztDZypZiyZP76Kq7" },
+    { event: "Sangeet",       date: "Friday, 4th Dec 2026",    venue: "PritiPrakash Niwas, Kataka",               time: "5pm Onwards",  mapsLink: "https://maps.app.goo.gl/nztDZypZiyZP76Kq7" },
+    { event: "Haldi",         date: "Saturday, 5th Dec 2026",  venue: "PritiPrakash Niwas, Kataka",               time: "11am Onwards", mapsLink: "https://maps.app.goo.gl/nztDZypZiyZP76Kq7" },
     { event: "Mangana Handi", date: "Sunday, 6th Dec 2026",    venue: "Sasmal Residence, Brahmana Sahi, Kataka",   time: "3pm Onwards",  mapsLink: "https://maps.app.goo.gl/nztDZypZiyZP76Kq7" },
     { event: "Baarat",        date: "Sunday, 6th Dec 2026",    venue: "Creative Convention, Balikuda, Kataka",     time: "7pm Onwards",  mapsLink: "https://maps.app.goo.gl/tbCjbczNkigvtUYG8" },
     { event: "Reception",     date: "Wednesday, 9th Dec 2026", venue: "Gandarpur Ground, Baranga, Kataka",         time: "7pm Onwards",  mapsLink: "https://maps.app.goo.gl/tbCjbczNkigvtUYG8" },
@@ -59,7 +58,6 @@ module.exports = {
   // Keys must match the event name shown on the card front.
   eventHours: 3,
   eventCardBack: {
-    "Mehendi":        { title: "Mehendi Ceremony",     lines: ["Music, dance & henna hands", "Dress Code: Colourful Traditional", "Snacks served"] },
     "Sangeet":        { title: "Sangeet Night",        lines: ["Music, dance & celebrations", "Dress Code: Golden / Colourful Traditional", "Dinner follows"] },
     "Haldi":          { title: "Haldi Ceremony",       lines: ["Wear yellow & have fun!", "Dress Code: Yellow / Pastels", "Lunch & refreshments"] },
     "Mangana Handi":  { title: "Mangana Handi",        lines: ["A Odia tradition to get blessings of Gram Devati", "Dress Code: Traditional", "Breakfast served & Lunch follows"] },
