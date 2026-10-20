@@ -32,7 +32,7 @@ PRANIT-WEDDING-INVI/
 │   │   └── frame/
 │   ├── js/                       – Framer build artefacts (do not edit)
 │   └── media/
-│       └── background_music.mp3
+│       └── background_music_mono.mp3
 ├── config/
 │   └── wedding.config.js         – ✏️  edit this to customise the invite
 ├── index.html                    – Framer SSR output (do not edit manually)

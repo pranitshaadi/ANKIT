@@ -53,7 +53,7 @@ module.exports = {
   instagramCtaLink: "",
 
   // ── Music ────────────────────────────────────────────────
-  musicUrl: "assets/media/background_music.mp3",
+  musicUrl: "assets/media/background_music_mono.mp3",
 
   // ── Event card back-face content ─────────────────────────
   // Keys must match the event name shown on the card front.

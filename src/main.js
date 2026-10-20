@@ -3,7 +3,7 @@
  */
 
 import { initDateReveal } from './components/ui/Countdown.js';
-import { initMusicPlayer } from './components/ui/MusicPlayer.js';
+import { initMusicPlayer } from './components/ui/MusicPlayer.js?v=3';
 import { initEventCards } from './components/sections/Events.js';
 import { initNavigation } from './components/layout/Navigation.js';
 import { initScrollAnimations } from './utils/animation.js';

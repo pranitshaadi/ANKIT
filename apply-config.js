@@ -16,6 +16,11 @@ const MARKER      = '<script type="module" src="src/main.js"></script>';
 const config = require(CONFIG_PATH);
 let html = fs.readFileSync(HTML_PATH, 'utf8');
 
+html = html.replace(
+  'typeof animator > "u") return;',
+  'typeof animator > "u" || !window.__framer__appearAnimationsContent) return;'
+);
+
 // ── 1. Inject window.WEDDING_CONFIG ─────────────────────────────────────────
 const injection = `<script>window.WEDDING_CONFIG = ${JSON.stringify(config, null, 2)};</script>\n    `;
 html = html.replace(/<script>window\.WEDDING_CONFIG[\s\S]*?<\/script>\n?\s*/g, '');
@@ -119,6 +124,16 @@ replaceAll('href="https://wa.me/91XXXXXXXXXX"', `href="${config.whatsappRsvpLink
 // Only replace the Section 3 anchor (Instagram), not any other href="#"
 replaceAll('data-framer-name="Section 3" href="#"', `data-framer-name="Section 3" href="${config.instagramCtaLink || '#'}"`);
 
+// Remove Framer's own audio source + autoplay (MusicPlayer.js owns the music)
+html = html.replace(
+  /<audio src="assets\/media\/background_music_mono\.mp3" loop class="framer-audio" preload="metadata"\s*autoplay><\/audio>/g,
+  '<audio loop class="framer-audio" preload="none"></audio>'
+);
+
+// Strip Framer's ?width=…&scale-down-to=… query strings so each image has ONE url
+const IMG_QUERY = /(assets\/[\w@.\/-]+\.(?:png|jpe?g|webp))\?[^`"'\s,)]*/g;
+html = html.replace(IMG_QUERY, '$1');
+
 // ── 5. Write output ──────────────────────────────────────────────────────────
 fs.writeFileSync(HTML_PATH, html, 'utf8');
 
@@ -144,6 +159,21 @@ for (const mjsPath of mjsFiles) {
   const nva0aOld = /PF8ftF8Ur: `[^`]+`, sKFuJb5xa: `[^`]+`(, style:)/g;
   const nva0aNew = `PF8ftF8Ur: \`${config.brideParents}\`, sKFuJb5xa: \`${config.brideRelation}\`$1`;
   if (nva0aOld.test(mjs)) { mjs = mjs.replace(nva0aOld, nva0aNew); changed = true; }
+
+  const noQuery = mjs.replace(IMG_QUERY, '$1');
+  if (noQuery !== mjs) { mjs = noQuery; changed = true; }
+
+  // Strip srcFile so Framer's player doesn't download the audio on load
+  if (mjs.includes('srcFile: `assets/media/background_music_mono.mp3`')) {
+    mjs = mjs.replace('srcFile: `assets/media/background_music_mono.mp3`', 'srcFile: ``');
+    changed = true;
+  }
+
+  // Music player — disable autoplay on load
+  if (mjs.includes('playing: !0, progress: 0')) {
+    mjs = mjs.replace('playing: !0, progress: 0', 'playing: !1, progress: 0');
+    changed = true;
+  }
 
   if (changed) { fs.writeFileSync(mjsPath, mjs, 'utf8'); mjsPatched++; }
 }

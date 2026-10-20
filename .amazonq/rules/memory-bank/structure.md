@@ -37,7 +37,7 @@ MissingPieceFramerInvitation/
 │   │   └── frame/              # Ornamental frame overlays
 │   ├── js/                     # Framer compiled .mjs bundles — DO NOT EDIT
 │   └── media/
-│       └── background_music.mp3
+│       └── background_music_mono.mp3
 ├── index.html                  # Framer SSR output — DO NOT EDIT MANUALLY
 ├── apply-config.js             # Patches index.html from wedding.config.js
 ├── package.json
